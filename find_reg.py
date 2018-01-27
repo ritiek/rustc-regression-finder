@@ -25,6 +25,7 @@ def output_has_keywords(cmd, capture):
                             stderr=subprocess.PIPE,
                             stdout=subprocess.PIPE)
 
+    print(output.returncode, output.stdout, output.stderr)
     stdout = output.stdout.decode('utf-8')
     stderr = output.stderr.decode('utf-8')
 
@@ -37,7 +38,6 @@ def set_default_toolchain(toolchain):
                             stderr=subprocess.PIPE,
                             stdout=subprocess.PIPE,
                             universal_newlines=True)
-    print(output.returncode, output.stdout, output.stderr)
     subprocess.run([init_path + 'rustc', '-vV'])
     return output.stdout
 
