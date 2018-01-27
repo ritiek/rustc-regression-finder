@@ -1,7 +1,6 @@
 import datetime
 import subprocess
 import os
-import sys
 
 keywords = 'Function return type'
 start_date = '2017-10-02'
