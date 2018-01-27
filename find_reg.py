@@ -6,11 +6,13 @@ import sys
 keywords = 'Function return type'
 start_date = '2017-10-02'
 end_date = '2018-01-26'
+travis = True
 
 init_path = '/home/travis/.cargo/bin/'
 cmd = [init_path + 'rustc', os.path.abspath('test.rs')]
 toolchain_type = 'nightly'
 last_date = start_date
+
 
 def middle_date(start_date, end_date):
     start = datetime.datetime.strptime(start_date, '%Y-%m-%d')
@@ -42,7 +44,11 @@ def set_default_toolchain(toolchain):
 mid_date = middle_date(start_date, end_date)
 toolchain = '{0}-{1}'.format(toolchain_type, mid_date)
 
-subprocess.run(['bash', 'rustup.sh', '-y', '--default-toolchain', toolchain])
+if travis:
+    subprocess.run(['bash', 'rustup.sh', '-y', '--default-toolchain', toolchain])
+else:
+    set_default_toolchain(toolchain)
+
 
 while not last_date == mid_date:
     last_date = mid_date
