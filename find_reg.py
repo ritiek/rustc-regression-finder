@@ -34,8 +34,8 @@ def output_has_keywords(cmd, capture):
 def set_default_toolchain(toolchain):
     cmd = [init_path + 'rustup', 'default', toolchain]
     output = subprocess.run(cmd,
-                            stderr=subprocess.PIPE,
-                            stdout=subprocess.PIPE)
+                            stderr=subprocess.STDOUT,
+                            stdout=subprocess.STDOUT)
     subprocess.run([init_path + 'rustc', '-vV'])
     return output.stdout
 
