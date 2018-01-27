@@ -25,9 +25,9 @@ def output_has_keywords(cmd, capture):
                             stderr=subprocess.PIPE,
                             stdout=subprocess.PIPE)
 
-    print(output.returncode, output.stdout, output.stderr)
     stdout = output.stdout.decode('utf-8')
     stderr = output.stderr.decode('utf-8')
+    print(stdout.replace('\\n', '\n'), stderr.replace('\\n', '\n'))
 
     return capture in stderr or capture in stdout
 
