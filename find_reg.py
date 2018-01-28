@@ -61,5 +61,7 @@ while not last_date == mid_date:
     mid_date = middle_date(start_date, end_date)
     toolchain = '{0}-{1}'.format(toolchain_type, mid_date)
 
-    print('\nSetting defaults: ' + toolchain)
+    print('Setting defaults: ' + toolchain)
     set_default_toolchain(toolchain)
+
+print('\nLast working toolchain: ' + toolchain)
