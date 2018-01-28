@@ -2,9 +2,9 @@ import datetime
 import subprocess
 import os
 
-keywords = 'panicked at'
+keywords = 'ld returned'
 start_date = '2017-10-02'
-end_date = '2018-01-25'
+end_date = '2018-01-18'
 travis = True
 
 init_path = '/home/travis/.cargo/bin/'
